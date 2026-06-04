@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using osu.Framework.Extensions.LocalisationExtensions;
 using osu.Framework.Localisation;
 using osu.Game.Online.API;
@@ -268,16 +269,28 @@ namespace osu.Game.Utils
         /// Given a value of a score multiplier, returns a string version with special handling for a value near 1.00x.
         /// </summary>
         /// <param name="scoreMultiplier">The value of the score multiplier.</param>
+		/// <param name="digits">The number of digits to round the score multiplier to (2 by default).</param>
         /// <returns>A formatted score multiplier with a trailing "x" symbol</returns>
-        public static LocalisableString FormatScoreMultiplier(double scoreMultiplier)
+        public static LocalisableString FormatScoreMultiplier(double scoreMultiplier, int digits = 2)
         {
             // Round multiplier values away from 1.00x to two significant digits.
             if (scoreMultiplier > 1)
-                scoreMultiplier = Math.Ceiling(Math.Round(scoreMultiplier * 100, 12)) / 100;
+                scoreMultiplier = Math.Ceiling(Math.Round(scoreMultiplier * Math.Pow(10, digits), 12)) / Math.Pow(10, digits);
             else
-                scoreMultiplier = Math.Floor(Math.Round(scoreMultiplier * 100, 12)) / 100;
-
-            return scoreMultiplier.ToLocalisableString("0.00x");
+                scoreMultiplier = Math.Floor(Math.Round(scoreMultiplier * Math.Pow(10, digits), 12)) / Math.Pow(10, digits);
+			
+			var stringBuilder = new StringBuilder(2 + digits + 1);
+			
+			stringBuilder.Append("0.");
+			
+			for (int i = 0; i < digits; i++)
+			{
+				stringBuilder.Append('0');
+			}
+			
+			stringBuilder.Append('x');
+			
+            return scoreMultiplier.ToLocalisableString(stringBuilder.ToString());
         }
 
         /// <summary>
