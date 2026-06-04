@@ -171,7 +171,13 @@ namespace osu.Game.Overlays.Mods
         {
             protected override double RollingDuration => 250;
 
-            protected override LocalisableString FormatCount(double count) => ModUtils.FormatScoreMultiplier(count);
+            private double multiplier;
+			
+			protected override LocalisableString FormatCount(double count)
+			{
+				multiplier = count;
+				return ModUtils.FormatScoreMultiplier(count);
+			}
 
             protected override OsuSpriteText CreateSpriteText() => new OsuSpriteText
             {
@@ -180,7 +186,7 @@ namespace osu.Game.Overlays.Mods
                 Font = OsuFont.Default.With(size: 17, weight: FontWeight.SemiBold)
             };
 
-            public LocalisableString TooltipText => ModSelectOverlayStrings.ScoreMultiplier;
+            public LocalisableString TooltipText => ModSelectOverlayStrings.ScoreMultiplier + ": " + ModUtils.FormatScoreMultiplier(multiplier, 5);
         }
     }
 }
