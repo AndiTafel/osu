@@ -275,9 +275,9 @@ namespace osu.Game.Utils
         {
             // Round multiplier values away from 1.00x to two significant digits.
             if (scoreMultiplier > 1)
-                scoreMultiplier = Math.Ceiling(Math.Round(scoreMultiplier * Math.Pow(10, digits), 14 - digits)) / Math.Pow(10, digits);
+                scoreMultiplier = Math.Ceiling(Math.Round(scoreMultiplier * Math.Pow(10, digits), 6 - digits)) / Math.Pow(10, digits);
             else
-                scoreMultiplier = Math.Floor(Math.Round(scoreMultiplier * Math.Pow(10, digits), 14 - digits)) / Math.Pow(10, digits);
+                scoreMultiplier = Math.Floor(Math.Round(scoreMultiplier * Math.Pow(10, digits), 6 - digits)) / Math.Pow(10, digits);
 			
 			var stringBuilder = new StringBuilder(2 + digits + 1);
 			
