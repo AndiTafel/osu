@@ -28,8 +28,10 @@ namespace osu.Game.Rulesets.Mods
         /// When there is no override (ie. <see cref="Current"/> is null), this value will match the beatmap provided default via <see cref="updateCurrentFromSlider"/>.
         /// </remarks>
         private readonly BindableNumber<float> sliderDisplayCurrent = new BindableNumber<float>();
+		
+		private SliderControl sliderControl;
 
-        protected sealed override Drawable CreateControl() => new SliderControl(sliderDisplayCurrent, CreateSlider);
+        protected sealed override Drawable CreateControl() => sliderControl = new SliderControl(sliderDisplayCurrent, CreateSlider);
 
         protected virtual RoundedSliderBar<float> CreateSlider(BindableNumber<float> current) => new RoundedSliderBar<float>();
 
@@ -49,6 +51,12 @@ namespace osu.Game.Rulesets.Mods
                 // This will provide bounds and precision specifications for the slider bar.
                 difficultyBindable = (DifficultyBindable)value.GetBoundCopy();
                 sliderDisplayCurrent.BindTo(difficultyBindable.CurrentNumber);
+				
+				// In case CreateControl runs after Current for some reason.
+				if (sliderControl != null)
+				{
+					sliderControl.SetPrecision(difficultyBindable.Precision);
+				}
 
                 base.Current = difficultyBindable;
             }
@@ -101,31 +109,38 @@ namespace osu.Game.Rulesets.Mods
                 get => current.Current;
                 set => current.Current = value;
             }
+			
+			private readonly RoundedSliderBar<float> slider;
 
             public SliderControl(BindableNumber<float> currentNumber, Func<BindableNumber<float>, RoundedSliderBar<float>> createSlider)
             {
-                InternalChildren = new Drawable[]
-                {
-                    createSlider(currentNumber).With(slider =>
-                    {
-                        slider.RelativeSizeAxes = Axes.X;
-                        slider.Current = currentNumber;
-                        slider.KeyboardStep = 0.1f;
-                        // this looks redundant, but isn't because of the various games this component plays
-                        // (`Current` is nullable and represents the underlying setting value,
-                        // `currentNumber` is not nullable and represents what is getting displayed,
-                        // therefore without this, double-clicking the slider would reset `currentNumber` to its bogus default of 0).
-                        slider.ResetToDefault = () =>
-                        {
-                            if (!Current.Disabled)
-                                Current.SetDefault();
-                        };
-                    })
-                };
+                slider = createSlider(currentNumber);
+				
+				slider.RelativeSizeAxes = Axes.X;
+				slider.Current = currentNumber;
+				// In case CreateControl runs after Current for some reason.
+				slider.KeyboardStep = currentNumber.Precision;
+				
+				// this looks redundant, but isn't because of the various games this component plays
+				// (`Current` is nullable and represents the underlying setting value,
+				// `currentNumber` is not nullable and represents what is getting displayed,
+				// therefore without this, double-clicking the slider would reset `currentNumber` to its bogus default of 0).
+				slider.ResetToDefault = () =>
+				{
+					if (!Current.Disabled)
+						Current.SetDefault();
+				};
+				
+				InternalChildren = new Drawable[] { slider };
 
                 AutoSizeAxes = Axes.Y;
                 RelativeSizeAxes = Axes.X;
             }
+			
+			public void SetPrecision(float precision)
+			{
+				slider.KeyboardStep = precision;
+			}
         }
 
         private class DifficultyBindableWithCurrent : DifficultyBindable, IHasCurrentValue<float?>

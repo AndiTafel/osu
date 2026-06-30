@@ -31,6 +31,7 @@ namespace osu.Game.Rulesets.Mods
 
         public float Precision
         {
+			get => CurrentNumber.Precision;
             set => CurrentNumber.Precision = value;
         }
 
