@@ -82,6 +82,12 @@ namespace osu.Game.Rulesets.Osu.Mods
 
                 case AnimationStyle.Decelerate3:
                     return Easing.OutQuint;
+				
+				case AnimationStyle.Elastic:
+					return Easing.InElastic;
+				
+				case AnimationStyle.Bounce:
+					return Easing.OutBounce;
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style), style, @"Unsupported animation style");
@@ -100,6 +106,8 @@ namespace osu.Game.Rulesets.Osu.Mods
             Decelerate1,
             Decelerate2,
             Decelerate3,
+			Elastic,
+			Bounce,
         }
     }
 }
