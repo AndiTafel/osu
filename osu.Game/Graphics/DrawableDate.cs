@@ -31,10 +31,13 @@ namespace osu.Game.Graphics
             }
         }
 
-        public DrawableDate(DateTimeOffset date, float textSize = OsuFont.DEFAULT_FONT_SIZE, bool italic = true)
+        private bool hereSinceTheBeginning;
+
+        public DrawableDate(DateTimeOffset date, float textSize = OsuFont.DEFAULT_FONT_SIZE, bool italic = true, bool beginning = false)
         {
             Font = OsuFont.GetFont(weight: FontWeight.Regular, size: textSize, italics: italic);
             Date = date;
+            hereSinceTheBeginning = beginning;
         }
 
         [BackgroundDependencyLoader]
@@ -103,7 +106,7 @@ namespace osu.Game.Graphics
             /// </remarks>
             public bool Equals(ILocalisableStringData? other) => false;
 
-            public string GetLocalised(LocalisationParameters parameters) => HumanizerUtils.Humanize(Date);
+            public string GetLocalised(LocalisationParameters parameters) => hereSinceTheBeginning ? UsersStrings.ShowFirstMembers : HumanizerUtils.Humanize(Date);
 
             public override string ToString() => GetLocalised(LocalisationParameters.DEFAULT);
         }
