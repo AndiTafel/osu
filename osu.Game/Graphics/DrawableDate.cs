@@ -8,6 +8,7 @@ using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Localisation;
 using osu.Game.Graphics.Sprites;
+using osu.Game.Resources.Localisation.Web;
 using osu.Game.Utils;
 
 namespace osu.Game.Graphics
@@ -76,7 +77,7 @@ namespace osu.Game.Graphics
             Scheduler.AddDelayed(updateTimeWithReschedule, timeUntilNextUpdate);
         }
 
-        protected virtual LocalisableString Format() => new LocalisableString(new HumanisedDate(Date));
+        protected virtual LocalisableString Format() => hereSinceTheBeginning ? UsersStrings.ShowFirstMembers : new LocalisableString(new HumanisedDate(Date));
 
         private void updateTime() => Text = Format();
 
@@ -106,7 +107,7 @@ namespace osu.Game.Graphics
             /// </remarks>
             public bool Equals(ILocalisableStringData? other) => false;
 
-            public string GetLocalised(LocalisationParameters parameters) => hereSinceTheBeginning ? UsersStrings.ShowFirstMembers : HumanizerUtils.Humanize(Date);
+            public string GetLocalised(LocalisationParameters parameters) => HumanizerUtils.Humanize(Date);
 
             public override string ToString() => GetLocalised(LocalisationParameters.DEFAULT);
         }
