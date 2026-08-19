@@ -84,7 +84,7 @@ namespace osu.Game.Overlays.Profile.Header
             if (user == null) return;
 
             if (user.JoinDate.ToUniversalTime().Year < 2008)
-                topLinkContainer.AddText(UsersStrings.ShowFirstMembers);
+                topLinkContainer.AddText(new DrawableDate(user.JoinDate, italic: false, beginning: true), embolden);
             else
             {
                 topLinkContainer.AddText("Joined ");
