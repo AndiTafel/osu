@@ -18,7 +18,7 @@ namespace osu.Game.Rulesets.Mania.Mods
         public override LocalisableString Description => @"Keys appear out of nowhere!";
         public override bool ValidForFreestyleAsRequiredMod => false;
 
-         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
         {
             typeof(ManiaModHidden),
             typeof(ManiaModCover)

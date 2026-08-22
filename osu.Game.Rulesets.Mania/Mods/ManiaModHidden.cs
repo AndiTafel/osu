@@ -31,7 +31,7 @@ namespace osu.Game.Rulesets.Mania.Mods
 
         public override LocalisableString Description => @"Keys fade out before you hit them!";
 
-         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
         {
             typeof(ManiaModFadeIn),
             typeof(ManiaModCover)
