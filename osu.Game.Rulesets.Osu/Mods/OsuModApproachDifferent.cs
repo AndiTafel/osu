@@ -21,7 +21,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override LocalisableString Description => "Never trust the approach circles...";
         public override IconUsage? Icon => OsuIcon.ModApproachDifferent;
 
-        public override Type[] IncompatibleMods => new[] { typeof(IHidesApproachCircles), typeof(OsuModFreezeFrame) };
+//         public override Type[] IncompatibleMods => new[] { typeof(IHidesApproachCircles), typeof(OsuModFreezeFrame) };
 
         [SettingSource("Initial size", "Change the initial size of the approach circle, relative to hit circles.", 0)]
         public BindableFloat Scale { get; } = new BindableFloat(4)

@@ -20,7 +20,7 @@ namespace osu.Game.Rulesets.Osu.Mods
 {
     public class OsuModClassic : ModClassic, IApplicableToHitObject, IApplicableToDrawableHitObject, IApplicableToDrawableRuleset<OsuHitObject>, IApplicableHealthProcessor
     {
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(OsuModStrictTracking)).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(OsuModStrictTracking)).ToArray();
 
         [SettingSource("No slider head accuracy requirement", "Scores sliders proportionally to the number of ticks hit.")]
         public Bindable<bool> NoSliderHeadAccuracy { get; } = new BindableBool(true);

@@ -18,6 +18,6 @@ namespace osu.Game.Rulesets.Mods
         public sealed override bool ValidForMultiplayer => false;
         public sealed override bool ValidForMultiplayerAsFreeMod => false;
         public sealed override bool AlwaysValidForSubmission => true;
-        public override Type[] IncompatibleMods => new[] { typeof(ICreateReplayData) };
+//         public override Type[] IncompatibleMods => new[] { typeof(ICreateReplayData) };
     }
 }

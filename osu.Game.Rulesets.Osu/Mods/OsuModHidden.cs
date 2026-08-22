@@ -25,7 +25,7 @@ namespace osu.Game.Rulesets.Osu.Mods
 
         public override LocalisableString Description => @"Play with no approach circles and fading circles/sliders.";
 
-        public override Type[] IncompatibleMods => new[] { typeof(IRequiresApproachCircles), typeof(OsuModSpinIn), typeof(OsuModDepth), typeof(OsuModFreezeFrame) };
+//         public override Type[] IncompatibleMods => new[] { typeof(IRequiresApproachCircles), typeof(OsuModSpinIn), typeof(OsuModDepth), typeof(OsuModFreezeFrame) };
 
         public const double FADE_IN_DURATION_MULTIPLIER = 0.4;
         public const double FADE_OUT_DURATION_MULTIPLIER = 0.3;

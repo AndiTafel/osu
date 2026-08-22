@@ -24,15 +24,15 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override ModType Type => ModType.Automation;
         public override LocalisableString Description => @"Automatic cursor movement - just follow the rhythm.";
 
-        public override Type[] IncompatibleMods => new[]
-        {
-            typeof(OsuModSpunOut),
-            typeof(ModRelax),
-            typeof(ModAutoplay),
-            typeof(OsuModMagnetised),
-            typeof(OsuModRepel),
-            typeof(ModTouchDevice)
-        };
+//         public override Type[] IncompatibleMods => new[]
+//        {
+//            typeof(OsuModSpunOut),
+//            typeof(ModRelax),
+//            typeof(ModAutoplay),
+//            typeof(OsuModMagnetised),
+//            typeof(OsuModRepel),
+//            typeof(ModTouchDevice)
+//        };
 
         private OsuInputManager inputManager = null!;
 

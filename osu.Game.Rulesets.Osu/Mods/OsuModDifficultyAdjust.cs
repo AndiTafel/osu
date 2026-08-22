@@ -73,7 +73,7 @@ namespace osu.Game.Rulesets.Osu.Mods
             }
         }
 
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(OsuModTargetPractice)).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(OsuModTargetPractice)).ToArray();
 
         protected override void ApplySettings(BeatmapDifficulty difficulty)
         {

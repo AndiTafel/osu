@@ -22,7 +22,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override IconUsage? Icon => OsuIcon.ModTransform;
         public override ModType Type => ModType.Fun;
         public override LocalisableString Description => "Everything rotates. EVERYTHING.";
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(OsuModWiggle), typeof(OsuModMagnetised), typeof(OsuModRepel), typeof(OsuModFreezeFrame), typeof(OsuModDepth) }).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(OsuModWiggle), typeof(OsuModMagnetised), typeof(OsuModRepel), typeof(OsuModFreezeFrame), typeof(OsuModDepth) }).ToArray();
 
         private float theta;
 

@@ -32,7 +32,7 @@ namespace osu.Game.Rulesets.Mods
             }
         }
 
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(ModAccuracyChallenge)).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(ModAccuracyChallenge)).ToArray();
 
         private int? retries;
 

@@ -29,7 +29,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override IconUsage? Icon => OsuIcon.ModStrictTracking;
         public override ModType Type => ModType.DifficultyIncrease;
         public override LocalisableString Description => @"Once you start a slider, follow precisely or get a miss.";
-        public override Type[] IncompatibleMods => new[] { typeof(ModClassic), typeof(OsuModTargetPractice) };
+//         public override Type[] IncompatibleMods => new[] { typeof(ModClassic), typeof(OsuModTargetPractice) };
 
         public void ApplyToDrawableHitObject(DrawableHitObject drawable)
         {

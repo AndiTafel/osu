@@ -30,7 +30,7 @@ namespace osu.Game.Rulesets.Mods
 
         public override ModType Type => ModType.DifficultyIncrease;
 
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(ModEasyWithExtraLives), typeof(ModPerfect) }).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(ModEasyWithExtraLives), typeof(ModPerfect) }).ToArray();
 
         public override bool RequiresConfiguration => false;
 

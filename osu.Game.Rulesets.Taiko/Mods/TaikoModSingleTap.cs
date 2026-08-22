@@ -30,7 +30,7 @@ namespace osu.Game.Rulesets.Taiko.Mods
         public override LocalisableString Description => @"One key for dons, one key for kats.";
 
         public override bool Ranked => true;
-        public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(ModRelax), typeof(TaikoModCinema) };
+//         public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(ModRelax), typeof(TaikoModCinema) };
         public override ModType Type => ModType.Conversion;
 
         private DrawableTaikoRuleset ruleset = null!;

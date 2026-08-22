@@ -14,10 +14,10 @@ namespace osu.Game.Rulesets.Osu.Mods
 {
     public class OsuModSuddenDeath : ModSuddenDeath
     {
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
-        {
-            typeof(OsuModTargetPractice),
-        }).ToArray();
+//         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
+//        {
+//            typeof(OsuModTargetPractice),
+//        }).ToArray();
 
         [SettingSource("Also fail when missing a slider tail")]
         public BindableBool FailOnSliderTail { get; } = new BindableBool();

@@ -29,7 +29,7 @@ namespace osu.Game.Rulesets.Mods
 
         public override bool ValidForFreestyleAsRequiredMod => true;
 
-        public override Type[] IncompatibleMods => new[] { typeof(ModEasy), typeof(ModHardRock) };
+//         public override Type[] IncompatibleMods => new[] { typeof(ModEasy), typeof(ModHardRock) };
 
         protected const int FIRST_SETTING_ORDER = 1;
 

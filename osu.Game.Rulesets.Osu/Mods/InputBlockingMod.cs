@@ -21,7 +21,7 @@ namespace osu.Game.Rulesets.Osu.Mods
 {
     public abstract partial class InputBlockingMod : Mod, IApplicableToDrawableRuleset<OsuHitObject>, IUpdatableByPlayfield
     {
-        public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(ModRelax), typeof(OsuModCinema) };
+//         public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(ModRelax), typeof(OsuModCinema) };
         public override ModType Type => ModType.Conversion;
 
         private const double flash_duration = 1000;
