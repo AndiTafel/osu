@@ -22,11 +22,11 @@ namespace osu.Game.Rulesets.Mania.Mods
 
         protected override CoverExpandDirection ExpandDirection => Direction.Value;
 
-//         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
-//        {
-//            typeof(ManiaModHidden),
-//            typeof(ManiaModFadeIn)
-//        }).ToArray();
+         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
+        {
+            typeof(ManiaModHidden),
+            typeof(ManiaModFadeIn)
+        }).ToArray();
 
         public override bool Ranked => true;
 

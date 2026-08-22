@@ -31,11 +31,11 @@ namespace osu.Game.Rulesets.Mania.Mods
 
         public override LocalisableString Description => @"Keys fade out before you hit them!";
 
-//         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
-//        {
-//            typeof(ManiaModFadeIn),
-//            typeof(ManiaModCover)
-//        }).ToArray();
+         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
+        {
+            typeof(ManiaModFadeIn),
+            typeof(ManiaModCover)
+        }).ToArray();
 
         public override BindableNumber<float> Coverage { get; } = new BindableFloat(MIN_COVERAGE);
         protected override CoverExpandDirection ExpandDirection => CoverExpandDirection.AgainstScroll;
